@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import SingleCard from "./components/SingleCard";
 
 const cardImages = [
-  { src: "/helmet-1.png" },
-  { src: "/potion-1.png" },
-  { src: "/ring-1.png" },
-  { src: "/scroll-1.png" },
-  { src: "/shield-1.png" },
-  { src: "/sword-1.png" },
+  { src: "/helmet-1.png", matched: false },
+  { src: "/potion-1.png" , matched: false },
+  { src: "/ring-1.png", matched: false  },
+  { src: "/scroll-1.png", matched: false  },
+  { src: "/shield-1.png" , matched: false },
+  { src: "/sword-1.png", matched: false  },
 ];
 
 function App() {
@@ -29,8 +29,38 @@ function App() {
   };
   // handle a choice
  const handleChoice = (card) =>{
-  choiceOne ? choiceTwo(card) : choiceOne(card)
+  choiceOne ? setChoicetwo(card) : setChoiceOne(card)
  }
+
+ // compare 2 selected card
+ useEffect(()=>{
+  if(choiceOne && choiceTwo){
+    if(choiceOne.src === choiceTwo.src){
+    setCards(prevCards => {
+      return prevCards.map(card =>{
+        if(card.src === choiceOne.src) {
+          return {...card, matched: true}
+      }else{
+        return card
+      }
+      })
+    })
+      resetTurn()
+    }else{
+      
+     setTimeout(()=> resetTurn(), 1000)
+    }
+  }
+ },[choiceOne, choiceTwo])
+console.log(cards);
+
+//reset choices & increase turn
+const resetTurn = () =>{
+  setChoiceOne(null)
+  setChoicetwo(null)
+  setTurns(prevTurns => prevTurns + 1)
+}
+
 
 
   return (
@@ -39,7 +69,7 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
       <div className="card-grid">
         {cards.map((card) => (
-          <SingleCard key={card.id} card={card} handleChoice={handleChoice}/>
+          <SingleCard key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched}/>
         ))}
       </div>
     </div>
