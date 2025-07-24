@@ -10,7 +10,7 @@ A simple memory matching card game built with React.
 Flip cards, find matching pairs, and test your memory!
 
 ---
-
+Wyrażenie	Znaczenie / Styl
 ## 🚀 Features
 
 - Flip cards to reveal images
@@ -20,7 +20,10 @@ Flip cards, find matching pairs, and test your memory!
 - Smooth animations and responsive design
 
 ---
-memory-game-magic.netlify.app
+
+
+- React (with hooks)
+- JavaScript (ES6)
 - CSS Modules or plain CSS
 - Vite / Create React App 
 
