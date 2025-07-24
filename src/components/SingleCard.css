@@ -1,4 +1,4 @@
-.card {
+ .card {
     position: relative;
 }
 .card img {
@@ -9,7 +9,7 @@
 }
 
 /* front of the card */
-.card .front {
+ .card .front {
     transform: rotateY(90deg);
     transition: all ease-in 0.2s;
     position: absolute;
@@ -26,5 +26,8 @@
 }
 .flipped .back{
      transform: rotateY(90deg);
-     transition-delay: 0s;
-}
+     transition-delay: 0.2s;
+} 
+ 
+
+ 

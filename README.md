@@ -20,10 +20,7 @@ Flip cards, find matching pairs, and test your memory!
 - Smooth animations and responsive design
 
 ---
-
-
-- React (with hooks)
-- JavaScript (ES6)
+memory-game-magic.netlify.app
 - CSS Modules or plain CSS
 - Vite / Create React App 
 
