@@ -10,7 +10,7 @@ A simple memory matching card game built with React.
 Flip cards, find matching pairs, and test your memory!
 
 ---
-Wyrażenie	Znaczenie / Styl
+
 ## 🚀 Features
 
 - Flip cards to reveal images
